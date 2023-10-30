@@ -1,7 +1,8 @@
 :root {
 	--bg-color: green;
+	--txt-color: greenyellow;
 	--typewriterSpeed: 6s;
-	--typewriterCharacters: 24;
+	--typewriterCharacters: 34;
   }
 
 
@@ -31,9 +32,9 @@
 #content {
 	font-family: VT323;
 	padding: 100px;
-	color:greenyellow;
+	color: var(--txt-color);
 	font-size: 30px;
-	text-shadow: 1px 1px 2px greenyellow, 0 0 1em greenyellow, 0 0 0.2em greenyellow;
+	text-shadow: 1px 1px 2px var(--txt-color), 0 0 0.5em var(--txt-color), 0 0 0.05em var(--txt-color);
 	margin: 0;
 	min-height: 100vh;
 	display: grid;
@@ -64,9 +65,23 @@ h1::after {
 
 h1::before {
 	background: var(--bg-color);
-	animation: typewriter 2s steps(36) forwards;
+	animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1::after {
+	width: 0.300em;
+	background: var(--txt-color);
+	animation: 
+		typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
+		blink 750ms steps(var(--typewriterCharacters)) infinite;
 }
 
 @keyframes typewriter {
 	to { left: 100%}
+}
+
+@keyframes blink {
+	to {
+		background: transparent;
+	}
 }

@@ -1,3 +1,13 @@
 You awaken onboard a derelect spaceship in ABANDONED space.
 
 Infront of you lies the control terminal for the ship.
+Readings indicate working LOCALSPACE systems. 
+However HYPERSPACE systems are inoperable.
+
+An alarm rings through the ship, an enemy craft is about to drop out of HYPERSPACE.
+Getting warp back online may be possible, but you need more TIME.
+
+If you want to SURVIVE, you must FIGHT.
+
+This is... 
+StarClash
