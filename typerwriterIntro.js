@@ -3,24 +3,24 @@ const typingSpeedMS = 75;
 
 const lineSets = [
 	[
-		'<li class="typewriterItem">You awaken on a derelect spaceship</li>',
-		'<li class="typewriterItem">in ABANDONED space.</li>'
+		'You awaken on a derelect spaceship',
+		'in ABANDONED space.'
 	],
 	[
-		'<li class="typewriterItem">In front of you lies the control terminal for the ship.</li>',
-		'<li class="typewriterItem">Readings indicate working LOCALSPACE systems. </li>',
-		'<li class="typewriterItem">However HYPERSPACE systems are inoperable.</li>'
+		'In front of you lies the control terminal for the ship.',
+		'Readings indicate working LOCALSPACE systems. ',
+		'However, HYPERSPACE systems are inoperable.'
 	],
 	[
-		'<li class="typewriterItem">Alert! An enemy craft is about to drop out of HYPERSPACE.</li>',
-		'<li class="typewriterItem">Getting warp back online may be possible,</li>',
-		'<li class="typewriterItem">but you need more TIME.</li>'
+		'Alert! An enemy craft is about to drop out of HYPERSPACE.',
+		'Getting warp back online may be possible,',
+		'but you need more TIME.'
 	],
 	[
-		'<li class="typewriterItem">If you want to SURVIVE, you must FIGHT.</li>'
+		'If you want to SURVIVE, you must FIGHT.'
 	],
 	[
-		'<li class="typewriterItem">This is... </li>'
+		'This is...'
 	]
 ]
 
@@ -43,19 +43,29 @@ function attachLine(lineSet) {
 	if (lineSet.length == 0)
 		return false;
 
-	let newLine = lineSet.shift();
+	const newElem = listElement.append('<li class="typewriterItem"></li>').children().last();
+	const lineText = lineSet.shift();
+	const lineLength = lineText.length;
 
-	const newElem = listElement.append(newLine).children().last();
-	const lineLength = newElem.text().length;
+	let character = 0;
 
-	newElem.css("--typewriterCharacters", lineLength);
-	newElem.css("--typewriterSpeed", (lineLength * typingSpeedMS) + "ms");
-	
-	newElem.on('animationend', {
-		lineSet: lineSet
-	}, (event) => {
-		return attachLine(event.data.lineSet);
-	});
+	const remainingSets = lineSets.length;
+	(function typeWriter() {
+		let timeOut = setTimeout( function() {
+			character++;
+			let type = lineText.substring(0, character);
+			newElem.text(type);
+
+			if (character == lineLength) {
+				clearTimeout(timeOut);
+				if (remainingSets == lineSets.length)
+					attachLine(lineSet);
+			}
+			else {
+				typeWriter();
+			}
+		}, typingSpeedMS);
+	}());
 
 	return true;
 	

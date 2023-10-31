@@ -76,41 +76,6 @@ html {
 	width: max-content;
 }
 
-.typewriterItem::before,
-.typewriterItem::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right:0;
-	bottom: 0;
-	left: 0;
-}
-
-.typewriterItem::before {
-	background: var(--bg-color);
-	animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) forwards;
-}
-
-/*
-.typewriterItem::after {
-	width: 0.300em;
-	background: var(--txt-color);
-	animation: 
-		typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards,
-		blink 750ms steps(var(--typewriterCharacters)) infinite;
-}*/
-
-@keyframes typewriter {
-	to { left: 100%}
-}
-
-@keyframes blink {
-	to {
-		background: transparent;
-	}
-}
-
-
 #title {
 	font-size: 20vw;
 	position: relative;
