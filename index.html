@@ -1,17 +1,27 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel ="stylesheet">
-		<link rel="stylesheet" href="style.css"
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="/ico/favicon.ico">
 	</head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 	<body>
 		<div id="screen">
 			<img src="scanlines.png" id="scan" class="noselect">
 			<!--<img src="bezel.png" id="bezel" class="noselect">-->
 			<div id="content">
-				<h1>You awaken on a derelect spaceship</h1> <!--in <br> <strong>ABANDONED</strong> space.</h1>-->
+				<div id="typewriteBox">
+					<ul id="typewriterList">
+					</ul>
+				</div>
 			</div>
 		</div>
+
+		<script src="typerwriterIntro.js"></script>
+
 	</body>
 </html>
