@@ -76,8 +76,8 @@ $(document).ready( () => {
 	function typewriterClickHandle() {
 		if (!newLineSet()) {
 			$(this).off('click', typewriterClickHandle);
-			$("#content").append('<p id="title">StarClash</p>');
-		}
+			$("#Main-Menu").show();
+        }
 	}
 
 	$(document).on('click', typewriterClickHandle);
