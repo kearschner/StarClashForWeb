@@ -13,7 +13,7 @@ const lineSets = [
 	],
 	[
 		'Alert! An enemy craft is about to drop out of HYPERSPACE.',
-		'Getting warp back online may be possible,',
+		'Getting warp back ONLINE may be possible,',
 		'but you need more TIME.'
 	],
 	[
